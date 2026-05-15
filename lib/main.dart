@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'presentation/screens/home/home_screen.dart';
+import 'presentation/screens/splash/splash_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,7 +19,11 @@ class MyApp extends StatelessWidget {
 
         colorSchemeSeed: Colors.blue,
       ),
-
+      initialRoute: SplashScreen.routeName,
+      routes: {
+        SplashScreen.routeName : (context) => const SplashScreen(),
+        HomeScreen.routeName : (context) => const HomeScreen()
+      },
     );
   }
 }
