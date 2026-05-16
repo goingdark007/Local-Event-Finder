@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   Future<void> _moveToNextScreen() async {
 
     await Future.delayed(
-        const Duration(seconds: 2), () {
+        const Duration(seconds: 3), () {
       if(!mounted) return;
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     });
@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   @override
   void initState(){
     super.initState();
-    _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 800));
+    _animationController = AnimationController(vsync: this, duration: const Duration(seconds: 2));
     _fadeIn = Tween(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
             parent: _animationController,

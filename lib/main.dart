@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 
         colorSchemeSeed: Colors.blue,
       ),
-      initialRoute: SplashScreen.routeName,
+      initialRoute:  SplashScreen.routeName,
       routes: {
         SplashScreen.routeName : (context) => const SplashScreen(),
         HomeScreen.routeName : (context) => const HomeScreen()
