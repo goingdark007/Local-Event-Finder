@@ -2,6 +2,8 @@ import '../../domain/entities/event.dart';
 
 class EventService {
 
+  const EventService();
+
   Future<List<Event>> getAllEvents() async {
 
     await Future.delayed(const Duration(seconds: 1));
