@@ -18,7 +18,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   void initState(){
     super.initState();
-    context.read<EventProvider>().loadEvent();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp){
+      context.read<EventProvider>().loadEvent();
+    });
   }
 
 
@@ -36,13 +38,21 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
       body: Consumer<EventProvider>(
         builder: (context, provider, child) {
+
+          if(provider.isLoading) return const Center(child: CircularProgressIndicator());
+
+          if(provider.hasError) return const Center(child: Text('Failed to Load'));
+
           return ListView.builder(
               itemCount: provider.events.length,
               itemBuilder: (BuildContext context, int index) {
 
                 final event = provider.events[index];
 
-                return EventCard(event: event);
+                return EventCard(
+                    event: event,
+                  onTap: () {},
+                );
               }
           );
         }
