@@ -3,6 +3,7 @@ import 'package:of26_local_event_finder_app/data/services/event_service.dart';
 import 'package:of26_local_event_finder_app/presentation/providers/event_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'presentation/screens/events/event_details.dart';
 import 'presentation/screens/home/home_screen.dart';
 import 'presentation/screens/splash/splash_screen.dart';
 
@@ -28,12 +29,17 @@ class MyApp extends StatelessWidget {
       title: 'Local Event Finder',
       theme: ThemeData(
         colorSchemeSeed: Colors.blue,
-        scaffoldBackgroundColor: Colors.white
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: AppBarThemeData(
+          backgroundColor: Colors.white,
+          centerTitle: false
+        )
       ),
       initialRoute:  SplashScreen.routeName,
       routes: {
         SplashScreen.routeName : (context) => const SplashScreen(),
-        HomeScreen.routeName : (context) => const HomeScreen()
+        HomeScreen.routeName : (context) => const HomeScreen(),
+        EventDetails.routeName : (context) => const EventDetails()
       },
     );
   }

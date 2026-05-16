@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:of26_local_event_finder_app/presentation/providers/event_provider.dart';
+import 'package:of26_local_event_finder_app/presentation/screens/events/event_details.dart';
 import 'package:of26_local_event_finder_app/presentation/screens/home/widgets/event_card.dart';
 import 'package:provider/provider.dart';
 
@@ -50,8 +51,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 final event = provider.events[index];
 
                 return EventCard(
-                    event: event,
-                  onTap: () {},
+                  event: event,
+                  onTap: () {
+                      Navigator.pushNamed(context, EventDetails.routeName, arguments: event.id);
+                  },
                 );
               }
           );
