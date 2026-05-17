@@ -75,26 +75,28 @@ class _EventDetailsState extends State<EventDetails> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.calendar_today,
-                        size: 16,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(event.date, style: const TextStyle(color: Colors.grey)),
-                    ],
+                  // Row(
+                  //   children: [
+                  //     const Icon(
+                  //       Icons.calendar_today,
+                  //       size: 16,
+                  //       color: Colors.grey,
+                  //     ),
+                  //     const SizedBox(width: 4),
+                  //     Text(event.date, style: const TextStyle(color: Colors.grey)),
+                  //   ],
+                  // ),
+                  buildCard(
+                      icon: Icons.calendar_today,
+                      iconSize: 16,
+                      title: 'Date & Time',
+                      subTitle: '${event.date}, ${event.time}'
                   ),
-                  Wrap(
-                    children: [
-                      const Icon(Icons.location_city, size: 16, color: Colors.grey),
-                      const SizedBox(width: 4),
-                      Text(
-                        event.location,
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                    ],
+                  buildCard(
+                      icon: Icons.location_city,
+                      iconSize: 20,
+                      title: 'Location',
+                      subTitle: event.location
                   ),
                   const Text(
                     'About this event',
@@ -126,5 +128,49 @@ class _EventDetailsState extends State<EventDetails> {
         ),
       ),
     );
+  }
+
+  Card buildCard({
+    required IconData icon,
+    required double iconSize,
+    required String title,
+    required String subTitle,
+  }) {
+    return Card(
+                  color: Colors.grey.shade50,
+                  margin: EdgeInsets.zero,
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    width: double.infinity,
+                    child: Row(
+                      mainAxisAlignment: .start,
+                      crossAxisAlignment: .start,
+                      spacing: 16,
+                      children: [
+                        Container(
+                          height: 32,
+                          width: 32,
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade300,
+                            borderRadius: BorderRadius.circular(8)
+                          ),
+                          child: Icon(
+                            icon,
+                            size: iconSize,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        Column(
+                          mainAxisSize: .min,
+                          crossAxisAlignment: .start,
+                          children: [
+                            Text(title, style: TextStyle(color: Colors.grey.shade600)),
+                            Text(subTitle, style: const TextStyle(color: Colors.black87, fontWeight: .w500)),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                );
   }
 }
