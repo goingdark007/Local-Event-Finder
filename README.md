@@ -14,9 +14,7 @@ A Flutter application designed to help users discover events happening in their 
 
 |  Splash Screen   |  Home Screen   |   Event Details   |
 |:----------------:|:--------------:|:-----------------:|
-| ![Splash Screen] | ![Home Screen] | ![Event Details]  |
-
-> *Note: Create a `screenshots` directory in the root and place your images there, or update the paths accordingly.*
+| <img width="270" height="600" alt="Screenshot_20260517_112139" src="https://github.com/user-attachments/assets/4fe85da9-ddca-47bb-89fc-71e0d2afcd20" /> | <img width="270" height="600" alt="Screenshot_20260517_112020" src="https://github.com/user-attachments/assets/09c944fb-efc5-4ed0-9265-266cba606b55" /> | <img width="270" height="600" alt="Screenshot_20260517_112041" src="https://github.com/user-attachments/assets/d41c6542-d030-461c-9bf5-4b3519e46a66" />  |
 
 ## Tech Stack
 
